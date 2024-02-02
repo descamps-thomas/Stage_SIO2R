@@ -170,7 +170,7 @@
                     <?php } else if ($donne['Typeecriture'] == 'Sortie') { ?>
                         <td></td>
                         <td>
-                            <?php
+                            <?php // test
                             echo $donne['libelle'] . ' '.'-' . ' ';
                             echo $donne['prix'] .'€'. ' '.'-' . ' ';
                             echo $donne['date'];
