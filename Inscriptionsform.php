@@ -100,12 +100,12 @@ if (!isset($_POST['login']) && !isset($_POST['prenom']) && !isset($_POST['nom'])
     $an = date("y");
     $login = $log1 . $log2 . $an;
 
-    $LOGIN = strtolower(trim(str_replace(['"', "'", '(', ')', '.'], '', $login)));
-    $PRENOM = strtolower(trim(str_replace(['"', "'", '(', ')', '.'], '', $_POST['prenom'])));
-    $NOM = strtolower(trim(str_replace(['"', "'", '(', ')', '.'], '', $_POST['nom'])));
-    $MDP = trim(str_replace(['"', "'", '(', ')', '.'], '', $_POST['mdp']));
-    $MDP_CONFIRM = trim(str_replace(['"', "'", '(', ')', '.'], '', $_POST['mdp_confirm']));
-    $MAIL = strtolower(trim(str_replace(['"', "'", '(', ')', '.'], '', $_POST['email'])));
+    $LOGIN = strtolower(trim(str_replace([';','"', "'", '(', ')', '.'], '', $login)));
+    $PRENOM = strtolower(trim(str_replace([';','"', "'", '(', ')', '.'], '', $_POST['prenom'])));
+    $NOM = strtolower(trim(str_replace([';','"', "'", '(', ')', '.'], '', $_POST['nom'])));
+    $MDP = trim(str_replace([';','"', "'", '(', ')', '.'], '', $_POST['mdp']));
+    $MDP_CONFIRM = trim(str_replace([';','"', "'", '(', ')', '.'], '', $_POST['mdp_confirm']));
+    $MAIL = strtolower(trim(str_replace([';','"', "'", '(', ')', '.'], '', $_POST['email'])));
     
     $server = "localhost";
     $dbname = "DomaineDPP";

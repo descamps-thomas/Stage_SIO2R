@@ -61,6 +61,7 @@
     <a href="index.php#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-tint"></i> Etangs en location</a>
     <a href="Inscriptionsform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-registered"></i> Inscriptions</a>
     <a href="Connexionform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Connexion</a>
+    <a href="Menu.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Menu</a>
     <a href="index.php#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red"></a>
   </div>
@@ -109,11 +110,10 @@ if ($_SESSION['typeuser'] == "2") {
         FROM Partiepeche
         JOIN Typepeche ON Partiepeche.typepecheid = Typepeche.id 
         JOIN Etang ON Partiepeche.etangid = Etang.id
-        WHERE Partiepeche.etat = :id ");
+        WHERE Partiepeche.etat = 1 ");
     
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT); 
     $requete1->execute();
-    $resultat = $requete1->fetchAll(PDO::FETCH_ASSOC);
+    $resultatt = $requete1->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <body>
@@ -128,7 +128,7 @@ if ($_SESSION['typeuser'] == "2") {
                 <th></th>
             </tr>
 
-            <?php foreach ($resultat as $donne) {?>
+            <?php foreach ($resultatt as $donne) {?>
                 <tr>
                     <td><?php echo $donne['nom']; ?></td>
                     <td><?php echo $donne['Etang']; ?></td>

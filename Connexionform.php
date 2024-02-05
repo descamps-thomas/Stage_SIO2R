@@ -53,6 +53,7 @@ body,html {
     <a href="index.php#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-tint"></i> Etangs en location</a>
     <a href="Inscriptionsform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-registered"></i> Inscriptions</a>
     <a href="Connexionform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Connexion</a>
+    <a href="Menu.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Menu</a>
     <a href="index.php#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
     </a>
@@ -94,52 +95,62 @@ body,html {
         echo '<br><a href="deconnexion.php">Se déconnecter</a>';
     } else {
         ?>
-        <html>
-        <center>
-            <h2>CONNEXION</h2>
-            </header>
-        </center>
+        <!DOCTYPE html>
+<html>
 
-        <center>
-            <h1>Formulaire de Connexion</h1>
-            <p class="w3-opacity">Connexion au compte</p>
-            <form method="post" action="">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><label>Login</label></td>
-                            <td><input type="text" required="" name="login" maxlength="32"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Mot de passe</label></td>
-                            <td><input type="password" required="" name="mdp" minlength="6" maxlength="32"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <br><input type="submit" name="submit" value="Envoyer">
-            </form>
+<head>
+    <title>Connexion</title>
+</header>
 
-            <?php
-            if (isset($_POST['submit'])) {
-                $nom_utilisateur = $_POST['login'];
-                $mot_de_passe = $_POST['mdp'];
+<body>
+    <center>
+        <h2>CONNEXION</h2>
+    </center>
 
-                $requeteSQL = "SELECT * FROM User WHERE login = :login";
-                $stmt = $connexion->prepare($requeteSQL);
-                $stmt->bindParam(':login', $nom_utilisateur, PDO::PARAM_STR); 
-                $stmt->execute();
+    <center>
+        <h1>Formulaire de Connexion</h1>
+        <p class="w3-opacity">Connexion au compte</p>
+        <form method="post" action="">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label>Login</label></td>
+                        <td><input type="text" required="" name="login" maxlength="32"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Mot de passe</label></td>
+                        <td><input type="password" required="" name="mdp" minlength="6" maxlength="32"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><input type="submit" name="submit" value="Envoyer">
+        </form>
 
-                if ($stmt->rowCount() > 0) {
-                    $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
+        <?php
+        if (isset($_POST['submit'])) {
+            $nom_utilisateur = $_POST['login'];
+            $mot_de_passe = $_POST['mdp'];
 
-                    $motDePasseStocke = $ligne['mdp'];
-                    $motDePasseAVerifierMD5 = md5($mot_de_passe);
 
+            $requeteSQL = "SELECT * FROM User WHERE login = :login";
+            $stmt = $connexion->prepare($requeteSQL);
+            $stmt->bindParam(':login', $nom_utilisateur, PDO::PARAM_STR);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $loginStocke = $ligne['login'];
+                $motDePasseStocke = $ligne['mdp'];
+                $motDePasseAVerifierMD5 = md5($mot_de_passe);
+
+                if ($nom_utilisateur === $loginStocke) {
                     if ($motDePasseAVerifierMD5 === $motDePasseStocke) {
+                        session_start();
                         $_SESSION['login'] = $nom_utilisateur;
                         $_SESSION['typeuser'] = $ligne['typeuser'];
                         header('Location: Menu.php');
-                        exit(); 
+                        exit();
                     } else {
                         echo "Le mot de passe est incorrect.";
                     }
@@ -147,10 +158,14 @@ body,html {
                     echo "L'utilisateur n'existe pas.";
                 }
             }
-            ?>
-            <br><br><br>
-        </html>
+        }
+        ?>
+    </center>
+</body>
 
+</html>
+        <br><br><br>
+        </html>
         <?php
         $connexion = null;
     }

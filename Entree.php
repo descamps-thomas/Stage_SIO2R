@@ -59,6 +59,7 @@ body, html {
     <a href="index.php#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-tint"></i> Etangs en location</a>
     <a href="Inscriptionsform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-registered"></i> Inscriptions</a>
     <a href="Connexionform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Connexion</a>
+    <a href="Menu.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Menu</a>
     <a href="index.php#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
     </a>
@@ -138,7 +139,7 @@ body, html {
         <table>
             <tbody>
                 <tr><td><label>Libellé</label></td><td><input type="text" required="" name="libellé" maxlength="32"></td></tr>
-                <tr><td><label>Prix</label></td><td><input type="number" step="any" required="" name="Prix" ></td></tr>
+                <tr><td><label>Prix</label></td><td><input type="number" step="0.01" required="" name="Prix" ></td></tr>
                 <tr>
                     <td><label>Type d'écriture</label></td>
                     <td>

@@ -66,16 +66,12 @@
                 <i class="fa fa-bars"></i>
             </a>
             <a href="index.php#home" class="w3-bar-item w3-button">Acceuil</a>
-            <a href="index.php#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> A
-                Propos</a>
-            <a href="index.php#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-tint"></i> Etangs
-                en location</a>
-            <a href="Inscriptionsform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-registered"></i>
-                Inscriptions</a>
-            <a href="Connexionform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i>
-                Connexion</a>
-            <a href="index.php#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i>
-                CONTACT</a>
+            <a href="index.php#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> A Propos</a>
+            <a href="index.php#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-tint"></i> Etangs en location</a>
+            <a href="Inscriptionsform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-registered"></i> Inscriptions</a>
+            <a href="Connexionform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i>Connexion</a>
+            <a href="Menu.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Menu</a>
+            <a href="index.php#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
             </a>
         </div>
@@ -83,8 +79,7 @@
         <!-- Navbar on small screens -->
         <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
             <a href="index.php#about" class="w3-bar-item w3-button" onclick="toggleFunction()">A Propos</a>
-            <a href="index.php#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">Etangs en
-                location</a>
+            <a href="index.php#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">Etangs en location</a>
             <a href="Inscription.php" class="w3-bar-item w3-button" onclick="toggleFunction()">Inscription</a>
             <a href="Connexion.php" class="w3-bar-item w3-button" onclick="toggleFunction()">Connection</a>
             <a href="index.php#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
@@ -102,49 +97,78 @@
     </header>
     <br><br><br>
     <?php
+session_start();
 
-    session_start();
+if (!isset($_SESSION['typeuser']) || !isset($_SESSION['login']) || ($_SESSION['typeuser'] != "1")) {
+    header('Location: index.php');
+    exit();
+}
 
-    if (!isset($_SESSION['typeuser']) || !isset($_SESSION['login']) || ($_SESSION['typeuser'] != "1")) {
-        header('Location: index.php');
-        exit();
-    }
+$server = "localhost";
+$dbname = "DomaineDPP";
+$user = "eleve";
+$passwd = "btsinfo";
 
-    $server = "localhost";
-    $dbname = "DomaineDPP";
-    $user = "eleve";
-    $passwd = "btsinfo";
+try {
+    $bdd = new PDO('mysql:host=' . $server . ';dbname=' . $dbname . ';charset=utf8', $user, $passwd);
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
+}
 
-    try {
-        $bdd = new PDO('mysql:host=' . $server . ';dbname=' . $dbname . ';charset=utf8', $user, $passwd);
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+if (isset($_POST['submit'])) {
+    $selectmois = $_POST['month'];
+    $selectannée = $_POST['year'];
 
     $requete1 = $bdd->prepare("SELECT Compte.*, typeecriture AS Typeecriture
     FROM Compte
     JOIN Typeecriture ON Compte.type = Typeecriture.id
-    order by Compte.date");
+    WHERE MONTH(Compte.date) = :month AND YEAR(Compte.date) = :year
+    ORDER BY Compte.date");
+    $requete1->bindParam(':month', $selectmois, PDO::PARAM_INT);
+    $requete1->bindParam(':year', $selectannée, PDO::PARAM_INT);
     $requete1->execute();
     $resultat = $requete1->fetchAll(PDO::FETCH_ASSOC);
-    ?>
-    <html>
-
-    <style>
-.flex-container {
-  display: flex;
 }
 
-.flex-container > div {
-  background-color: #f1f1f1;
-  margin: 80px;
-  padding: 20px;
-  font-size: 20px;
-}
-</style>
-</head>
+$sommeEntree = 0;
+$sommeSortie = 0;
+?>
+
+<html>
+
 <body>
     <center>
+        <a href="Entree.php" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Ajouter une Donnée </a>
+        <br><br>
+
+        <form method="post" action="" >
+            <label for="month">Mois :</label>
+            <select name="month" id="month">
+                <?php
+                $mois_fr = array(
+                    1 => "Janvier", 2 => "Février", 3 => "Mars", 4 => "Avril",
+                    5 => "Mai", 6 => "Juin", 7 => "Juillet", 8 => "Août",
+                    9 => "Septembre", 10 => "Octobre", 11 => "Novembre", 12 => "Décembre"
+                );
+
+                foreach ($mois_fr as $num => $mois) {
+                    echo '<option value="' . $num . '">' . $mois . '</option>';
+                }
+                ?>
+            </select>
+
+            <label for="year">Année :</label>
+            <select name="year" id="year">
+                <?php
+                for ($i = date("Y"); $i >= date("Y") - 5; $i--) {
+                    echo '<option value="' . $i . '">' . $i . '</option>';
+                }
+                ?>
+            </select>
+
+            <input type="submit" name="submit" value="Filtrer" class="w3-button w3-round">
+        </form>
+
         <table class="w3-table w3-striped w3-border w3-centered">
             <tr>
                 <th>Entrée</th>
@@ -156,44 +180,54 @@
                     <?php if ($donne['Typeecriture'] == 'Entrée') { ?>
                         <td>
                             <?php
-                            echo $donne['libelle'] . ' ' .'-' . ' ';
-                            echo $donne['prix'] .'€'. ' '.'-' . ' ';
-                            echo $donne['date'];
-                          ?>
-                           <a href="Supprimecompte.php?id=<?php echo $donne['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette donnée ?')">
-                                <img src="Images/delete.png" alt="Supprimer" style="width: 20px; height: 20px;">
-                            </a>
-
-                        </td>
-                        <td></td>
-                        
-                    <?php } else if ($donne['Typeecriture'] == 'Sortie') { ?>
-                        <td></td>
-                        <td>
-                            <?php // test
-                            echo $donne['libelle'] . ' '.'-' . ' ';
-                            echo $donne['prix'] .'€'. ' '.'-' . ' ';
+                            echo $donne['libelle'] . ' ' . '-' . ' ';
+                            echo $donne['prix'] . '€' . ' ' . '-' . ' ';
                             echo $donne['date'];
                             ?>
                             <a href="Supprimecompte.php?id=<?php echo $donne['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette donnée ?')">
                                 <img src="Images/delete.png" alt="Supprimer" style="width: 20px; height: 20px;">
                             </a>
                         </td>
+                        <td></td>
+
+                    <?php
+                        $sommeEntree += $donne['prix'];
+                    } else if ($donne['Typeecriture'] == 'Sortie') { ?>
+                        <td></td>
+                        <td>
+                            <?php
+                            echo $donne['libelle'] . ' ' . '-' . ' ';
+                            echo $donne['prix'] . '€' . ' ' . '-' . ' ';
+                            echo $donne['date'];
+                            echo $somme;
+                            ?>
+                            <a href="Supprimecompte.php?id=<?php echo $donne['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette donnée ?')">
+                                <img src="Images/delete.png" alt="Supprimer" style="width: 20px; height: 20px;">
+                            </a>
+                        </td>
                 </tr>
-            <?php } } ?>
+            <?php
+                        $sommeSortie += $donne['prix'];
+                    }
+                }
+                $somme = $sommeEntree - $sommeSortie;
+            ?>
         </table>
-        <br>
-        <a href="Entree.php" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Ajouter une Donnée </a>
-        <br>
-    </center>
+        <div class="col-md-6 text-right">
+                <div class="bg-light p-3 rounded">
+                    <p>Total Entrées: <?php echo $sommeEntree; ?>€ <br>
+                        Total Sorties: <?php echo $sommeSortie; ?>€ <br>
+                        Total: <?php echo $somme; ?>€</p>
+                </div>
+            </div>
+
 </body>
+
 <br><br><br>
-</div>
-</body>
 
 </html>
 
-    </html>
+
 
     </center>
     <!-- Hide this text on small devices -->

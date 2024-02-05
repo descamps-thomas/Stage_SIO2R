@@ -31,7 +31,6 @@ if (!isset($_SESSION['typeuser']) || !isset($_SESSION['login']) || ($_SESSION['t
         exit();
     } else {
         echo "Paramètres manquants. Redirection vers index.php";
-        // header('Location: index.php');
         exit();
     }
 }
