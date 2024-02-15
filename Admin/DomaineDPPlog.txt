@@ -1,0 +1,53 @@
+2024-02-14 14:26:38 ; tdescamps24 ; Connection success from @ip:  with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 14:31:10 ; tdescamps24 ; Connection success from @ip:  with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 14:34:21 ; tdescamps24 ; Connection success from @ip:  with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 14:49:57 ; tdescamps24 ; Connection success from @ip:  with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 14:51:19 ; tdescamps24 ; Connection success from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 14:52:19 ; tdescamps24 ; Connection success from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+ ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 14:59:03 ; tdescamps24 ; Connection success from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+ ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 15:00:17 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 15:00:21 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 15:13:24 ; tdescamps24 ; Connection success from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+ ; tdescamps2 ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+ ; tdescamps ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 15:32:52 ; tdescamps ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 15:32:55 ; tdescamps ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 15:33:38 ; test ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 15:37:52 ; tdescamps24 ; Connection success from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 16:01:03 ; tdescamps24 ; Connection success from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+2024-02-14 16:02:34 ; tdescamps24 ; Connection success from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+14-02-2024 16:36:13 ; tdescamps ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+02-14-2024 16:45:01 ; tdescamps24 ; Connection success from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+02-14-2024 16:45:08 ; test ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:11:44 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:12:53 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:12:57 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:13:00 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:13:07 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:13:11 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:25:22 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:25:25 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:25:28 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:25:31 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:25:35 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:25:54 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:25:56 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:25:58 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:26:00 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:34:52 ; tdescamps ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:34:54 ; tdescamps ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:34:56 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:34:58 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:35:00 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:35:03 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:21 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:22 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:23 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:25 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:28 ; eleve ; Connection fail (login) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:39 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:42 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:45 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
+15-02-2024 11:38:48 ; tdescamps24 ; Connection fail (password) from @ip: 127.0.0.1 with Mozilla/5.0 (X11; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0
