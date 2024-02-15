@@ -53,7 +53,6 @@ body,html {
     <a href="index.php#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-tint"></i> Etangs en location</a>
     <a href="Inscriptionsform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-registered"></i> Inscriptions</a>
     <a href="Connexionform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Connexion</a>
-    <a href="Menu.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Menu</a>
     <a href="index.php#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
     </a>
@@ -75,8 +74,14 @@ body,html {
 </div>
 
 <header class="w3-center w3-black w3-padding-32 w3-opacity">
+<center>
+        <h2>CONNEXION</h2>
+    </center>
+</header>
+    <center>
+        <h1>Formulaire de connexion</h1>
+
     <?php
-    session_start();
 
     $serveur = "localhost";
     $utilisateur = "eleve";
@@ -95,20 +100,9 @@ body,html {
         echo '<br><a href="deconnexion.php">Se déconnecter</a>';
     } else {
         ?>
-        <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Connexion</title>
-</header>
-
 <body>
     <center>
-        <h2>CONNEXION</h2>
-    </center>
-
-    <center>
-        <h1>Formulaire de Connexion</h1>
         <p class="w3-opacity">Connexion au compte</p>
         <form method="post" action="">
             <table>
@@ -127,39 +121,60 @@ body,html {
         </form>
 
         <?php
-        if (isset($_POST['submit'])) {
-            $nom_utilisateur = $_POST['login'];
-            $mot_de_passe = $_POST['mdp'];
+if (isset($_POST['submit'])) {
+    $nom_utilisateur = $_POST['login'];
+    $mot_de_passe = $_POST['mdp'];
 
+    $requeteSQL = "SELECT * FROM User WHERE login = :login";
+    $stmt = $connexion->prepare($requeteSQL);
+    $stmt->bindParam(':login', $nom_utilisateur, PDO::PARAM_STR);
+    $stmt->execute();
 
-            $requeteSQL = "SELECT * FROM User WHERE login = :login";
-            $stmt = $connexion->prepare($requeteSQL);
-            $stmt->bindParam(':login', $nom_utilisateur, PDO::PARAM_STR);
-            $stmt->execute();
+    $date = date("d-m-Y H:i:s");
 
-            if ($stmt->rowCount() > 0) {
-                $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($stmt->rowCount() > 0) {
+        $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                $loginStocke = $ligne['login'];
-                $motDePasseStocke = $ligne['mdp'];
-                $motDePasseAVerifierMD5 = md5($mot_de_passe);
-
-                if ($nom_utilisateur === $loginStocke) {
-                    if ($motDePasseAVerifierMD5 === $motDePasseStocke) {
-                        session_start();
-                        $_SESSION['login'] = $nom_utilisateur;
-                        $_SESSION['typeuser'] = $ligne['typeuser'];
-                        header('Location: Menu.php');
-                        exit();
-                    } else {
-                        echo "Le mot de passe est incorrect.";
-                    }
-                } else {
-                    echo "L'utilisateur n'existe pas.";
-                }
+        $loginStocke = $ligne['login'];
+        $motDePasseStocke = $ligne['mdp'];
+        $motDePasseAVerifierMD5 = md5($mot_de_passe);
+    
+        if ($nom_utilisateur === $loginStocke) {
+            if ($motDePasseAVerifierMD5 === $motDePasseStocke) {
+                session_start();
+                $_SESSION['login'] = $nom_utilisateur;
+                $_SESSION['typeuser'] = $ligne['typeuser'];
+              
+            
+                $fichier = fopen('Admin/DomaineDPPlog.txt', 'c+b');
+                fseek($fichier, filesize('Admin/DomaineDPPlog.txt'));
+                $texte = $date . " ; " . $nom_utilisateur . " ; Connection success from @ip: " . $_SERVER['REMOTE_ADDR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
+              //  $texte = $date . " ; " . $loginStocke . " ; Connection success from @ip: " . $_SERVER['HTTP_X_FORWARDED_FOR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
+                fwrite($fichier, $texte);       
+                header('Location: Menu.php');
+                exit();
+            } else {
+                
+                echo "<label class='w3-text-deep-orange'>Mot de passe incorect.</label>";
+                $fichier = fopen('Admin/DomaineDPPlog.txt', 'c+b');
+                fseek($fichier, filesize('Admin/DomaineDPPlog.txt'));
+                $texte = $date . " ; " . $nom_utilisateur . " ; Connection fail (password) from @ip: " . $_SERVER['REMOTE_ADDR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
+               // $texte = $date . " ; " . $loginStocke . " ; Connection fail (password) from @ip: " . $_SERVER['HTTP_X_FORWARDED_FOR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
+                fwrite($fichier, $texte); 
             }
         }
-        ?>
+    } else {
+        echo "<label class='w3-text-deep-orange'>L'utilisateur n'existe pas.</label>";
+    
+        $fichier = fopen('Admin/DomaineDPPlog.txt', 'c+b');
+        fseek($fichier, filesize('Admin/DomaineDPPlog.txt'));
+        $texte = $date . " ; " . $nom_utilisateur . " ; Connection fail (login) from @ip: " . $_SERVER['REMOTE_ADDR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
+        // $texte = $date . " ; " . $loginStocke . " ; Connection fail (login) from @ip: " . $_SERVER['HTTP_X_FORWARDED_FOR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
+        fwrite($fichier, $texte); 
+    }
+}
+    }
+?>
     </center>
 </body>
 
@@ -167,9 +182,7 @@ body,html {
         <br><br><br>
         </html>
         <?php
-        $connexion = null;
-    }
-    ?>
+        $connexion = null; ?>
     </center>
     <!-- Hide this text on small devices -->
     <div class="w3-col m6 w3-hide-small w3-padding-large">

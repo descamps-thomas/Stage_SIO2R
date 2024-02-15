@@ -1,52 +1,40 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-<title>Domaine du Pont Prieur</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-  body, h1, h2, h3, h4, h5, h6 {
-    font-family: "Lato", sans-serif;
-  }
-
-  body, html {
-    height: 100%;
-    color: #777;
-    line-height: 1.8;
-  }
-
-  /* Create a Parallax Effect */
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  /* First image (Logo. Full height) */
-  .bgimg-1 {
-    background-image: url('Images/domaine1.jpg');
-    min-height: 32%;
-  }
-
-  .w3-wide {
-    letter-spacing: 10px;
-  }
-
-  .w3-hover-opacity {
-    cursor: pointer;
-  }
-
-  /* Turn off parallax scrolling for tablets and phones */
-  @media only screen and (max-device-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-      background-attachment: scroll;
+  <title>Domaine du Pont Prieur</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body, h1, h2, h3, h4, h5, h6 { font-family: "Lato", sans-serif; }
+    body, html {
+      height: 100%;
+      color: #777;
+      line-height: 1.8;
     }
-  }
-</style>
+    /* Create a Parallax Effect */
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    /* First image (Logo. Full height) */
+    .bgimg-1 {
+      background-image: url('../Images/domaine1.jpg');
+      min-height: 42px;
+    }
+    .w3-wide { letter-spacing: 10px; }
+    .w3-hover-opacity { cursor: pointer; }
+    /* Turn off parallax scrolling for tablets and phones */
+    @media only screen and (max-device-width: 1024px) {
+      .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -56,29 +44,34 @@
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="index.php#home" class="w3-bar-item w3-button">Acceuil</a>
-    <a href="index.php#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> A Propos</a>
-    <a href="index.php#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-tint"></i> Etangs en location</a>
-    <a href="Inscriptionsform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-registered"></i> Inscriptions</a>
-    <a href="Connexionform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Connexion</a>
-    <a href="Menu.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Menu</a>
-    <a href="index.php#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="../index.php#home" class="w3-bar-item w3-button">Accueil</a>
+    <a href="../index.php#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> A Propos</a>
+    <a href="../index.php#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-tint"></i> Etangs en location</a>
+    <a href="../index.php#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> Contact</a>
+    <a href="../Inscriptionsform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-registered"></i> Inscriptions</a>
+    <a href="../Connexionform.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Connexion</a>
+    <a href="../Menu.php" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Menu</a>
+    <a href="../deconnexion.php" class="w3-bar-item w3-button w3-hide-small w3-right"><i class="fa fa-sign-out"></i> Déconnexion</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red"></a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="index.php#about" class="w3-bar-item w3-button" onclick="toggleFunction()">A Propos</a>
-    <a href="index.php#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">Etangs en location</a>
-    <a href="Inscription.php" class="w3-bar-item w3-button" onclick="toggleFunction()">Inscription</a>
-    <a href="Connexion.php" class="w3-bar-item w3-button" onclick="toggleFunction()">Connection</a>
-    <a href="index.php#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="../index.php#about" class="w3-bar-item w3-button" onclick="toggleFunction()">A Propos</a>
+    <a href="../index.php#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">Etangs en location</a>
+    <a href="../index.php#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
+    <a href="../Inscription.php" class="w3-bar-item w3-button" onclick="toggleFunction()">Inscription</a>
+    <a href="../Connexion.php" class="w3-bar-item w3-button" onclick="toggleFunction()">Connexion</a>
+    <a href="../Menu.php" class="w3-bar-item w3-button" onclick="toggleFunction()">Menu</a>
+    <a href="../deconnexion.php" class="w3-bar-item w3-button" onclick="toggleFunction()">Deconnexion</a>
   </div>
 </div>
-
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;"></div>
+  <div class="w3-display-middle" style="white-space:nowrap;">
 </div>
+</div>
+</body>
+<script src="https://kit.fontawesome.com/1efcc5ad4f.js" crossorigin="anonymous"></script>
 
 <header class="w3-center w3-black w3-padding-32 w3-opacity">
   <center><h2>AFFICHAGE DES PARTIES DE PÊCHE</h2></center>
@@ -86,7 +79,20 @@
 
 <br><br><br>
 
+
 <?php
+
+function getColorStyle($typeuser) {
+  switch ($typeuser) {
+      case 1:
+          return 'w3-text-green';
+      case 2:
+          return 'w3-text-red';
+      default:
+          return '';
+  }
+}
+
 session_start();
 
 if (!isset($_SESSION['typeuser']) || !isset($_SESSION['login']) || ($_SESSION['typeuser'] != "1" && $_SESSION['typeuser'] != "2")) {
@@ -136,9 +142,9 @@ if ($_SESSION['typeuser'] == "2") {
                     <td><?php echo $donne['nombremax']; ?></td>
                     <td><?php echo $donne['date']; ?></td>
                     <td>
-                        <a href="Reserve.php?id=<?php echo $donne['id']; ?>">
-                            <img src="Images/reserve.png" alt="Reserve" style="width: 20px; height: 20px;">
-                        </a>
+                    <a href="Reserve.php?id=<?php echo $donne['id']; ?>">
+                       Je réserve mes place
+                    </a>
                     </td>
                 </tr>
             <?php }?>
@@ -159,6 +165,7 @@ if ($_SESSION['typeuser'] == "2") {
         <table class="w3-table-all w3-centered">
             <tr>
                 <th>Nom de la partie</th>
+                <th></th>
                 <th>Numéro de l'étang</th>
                 <th>Type de pêche</th>
                 <th>Nombre de places</th>
@@ -166,24 +173,44 @@ if ($_SESSION['typeuser'] == "2") {
                 <th></th>
             </tr>
 
-            <?php foreach ($resultat as $donne) {?>
-                <tr>
+            <?php foreach ($resultat as $donne) {
+              ?>
+                <tr>    
                     <td><?php echo $donne['nom']; ?></td>
+                   
+                    <td>
+                        <form action="Admin/Etat.php" method="post"> 
+                        <input type="hidden" name="id" value="<?php echo $donne['id']; ?>">
+                        <input type="hidden" name="etat" value="<?php echo $donne['etat']; ?>">
+                            <button type="submit" class="<?php echo getColorStyle($donne['etat']); ?>">
+                            <i class="fa-solid fa-key"></i>
+                            </button> 
+                        </form>
+                        </td>
+               
                     <td><?php echo $donne['Etang']; ?></td>
                     <td><?php echo $donne['Typepeche']; ?></td>
                     <td><?php echo $donne['nombremax']; ?></td>
                     <td><?php echo $donne['date']; ?></td>
+                    
                     <td>
-                        <a href="Reserve.php?id=<?php echo $donne['id']; ?>">
-                            <img src="Images/reserve.png" alt="Reserve" style="width: 20px; height: 20px;">
-                        </a>
-                        <a href="AfficheReserv.php?id=<?php echo $donne['id']; ?>">
-                            <img src="Images/oeil.png" alt="affiche" style="width: 20px; height: 20px;">
-                        </a>
-                        <a href="Modifpartie.php?id=<?php echo $donne['id']; ?>">
-                            <img src="Images/edit.png" alt="edit" style="width: 20px; height: 20px;">
-                        </a> 
+                    <form action="Admin/AfficheReserv.php" method="get">
+                    <input type="hidden" name="id" value="<?php echo $donne['id']; ?>">
+                    <button type="submit">
+                    <i class="fa-solid fa-eye"></i>
+                    </button>
+                    </form>
                     </td>
+
+                    <td>
+                    <form action="Admin/Modifpartie.php" method="get">
+                    <input type="hidden" name="id" value="<?php echo $donne['id']; ?>">
+                    <button type="submit">
+                    <i class="fa fa-pen-to-square"></i>
+                    </button>
+                    </form>
+                    </td>
+
                 </tr>
             <?php }?>
         </table>

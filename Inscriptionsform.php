@@ -73,25 +73,45 @@ body, html {
   </div>
 </div>
 <header class="w3-center w3-black w3-padding-32 w3-opacity">
-
-<?php
-if (!isset($_POST['login']) && !isset($_POST['prenom']) && !isset($_POST['nom']) && !isset($_POST['mdp']) && !isset($_POST['mdp_confirm']) && !isset($_POST['mail'])) {
-    ?><html>
-    <center><h2>INSCRIPTION</h2></center>
-    </header>
+<center>
+        <h2>INSCRIPTION</h2>
+    </center>
+</header>
     <center>
         <h1>Formulaire d'inscription</h1>
-        <p class="w3-opacity">CREATION DU COMPTE</p>
+<?php
+if (!isset($_POST['login']) && !isset($_POST['prenom']) && !isset($_POST['nom']) && !isset($_POST['mdp']) && !isset($_POST['mdp_confirm']) && !isset($_POST['email'])) {
+    ?>
+    <html>
+        <p class="w3-opacity">CRÉATION DU COMPTE</p>
         <form action="Inscriptionsform.php" id="inscriptionForm" method="POST">
             <table>
-                <tbody><tr><td><label>Nom</label></td><td><input type="text" required="" name="nom" maxlength="32"></td></tr>
-                <tr><td><label>Prénom</label></td><td><input type="text" required="" name="prenom" maxlength="32"></td></tr>
-                <tr><td><label>Email</label></td><td><input type="email" required="" name="email" maxlength="64"></td></tr>
-                <tr><td><label>Mot de passe</label></td><td><input type="password" required="" name="mdp" minlength="6" maxlength="32"></td></tr>
-                <tr><td><label>Confirmer mot de passe</label></td><td><input type="password" required="" name="mdp_confirm" minlength="6" maxlength="32"></td></tr>
-            </tbody></table>
+                <tbody>
+                    <tr>
+                        <td><label>Nom <span style="color: red;">*</span></label></td>
+                        <td><input type="text" required name="nom" maxlength="32"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Prénom <span style="color: red;">*</span></label></td>
+                        <td><input type="text" required name="prenom" maxlength="32"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Email <span style="color: red;">*</span></label></td>
+                        <td><input type="email" required name="email" maxlength="64"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Mot de passe <span style="color: red;">*</span></label></td>
+                        <td><input type="password" required name="mdp" minlength="6" maxlength="32"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Confirmation <span style="color: red;">*</span></label></td>
+                        <td><input type="password" required name="mdp_confirm" minlength="6" maxlength="32"></td>
+                    </tr>
+                </tbody>
+            </table>
             <br><input type="submit" value="Envoyer">
         </form>
+    </center>
     </html>
     <?php
 } else {
@@ -134,7 +154,7 @@ if (!isset($_POST['login']) && !isset($_POST['prenom']) && !isset($_POST['nom'])
                 $requete->bindParam(':mail', $MAIL);
                 $requete->execute();
 
-                echo "Votre login :" . $LOGIN;
+                echo "<h2>Votre login :  $LOGIN</h2>";
             }
         }
     } catch (Exception $e) {

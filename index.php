@@ -1,5 +1,3 @@
-
-<?php session_destroy(); ?>
 <html>
 <head>
 <title>Domaine du Pont Prieur</title>
@@ -24,33 +22,27 @@ body, html {
   background-size: cover;
 }
 
-/* First image (Logo. Full height) */
+/* Première image (Logo. Pleine hauteur) */
 .bgimg-1 {
-  background-image: url('Images/domaine1.jpg');
+  background-image: url('Images/domaine1.jpg?<?php echo filemtime('Images/domaine1.jpg'); ?>');
   min-height: 100%;
 }
 
-/* Second image (Portfolio) */
+/* Deuxième image (Portfolio) */
 .bgimg-2 {
-  background-image: url('Images/domaine1.jpg');
+  background-image: url('Images/domaine1.jpg?<?php echo filemtime('Images/domaine1.jpg'); ?>');
   min-height: 350px;
 }
 
-/* Third image (Contact) */
+/* Troisième image (Contact) */
 .bgimg-3 {
-  background-image: url('Images/domaine1.jpg');
+  background-image: url('Images/domaine1.jpg?<?php echo filemtime('Images/domaine1.jpg'); ?>');
   min-height: 350px;
 }
 
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
 
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1024px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-  }
-}
 </style>
 </head>
 <body>
@@ -90,33 +82,39 @@ body, html {
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">A Propos</h3>
-  <p class="w3-center"><em>Domaine comportant 9 étangs de pêche à la truite avec bar et friterie le midi.</em></p>
-  <center><p>Horaire<br>
-        Ouvert tous les jours sauf le jeudi.<br>
-              La demi-journée 18e <br>
-                de 7h30 à 13h00<br>
-                      OU <br>
-                de 13h00 à 19h00<br>
+  <center>
+    <p><h5>Domaine comportant 9 étangs de pêche à la truite avec bar et friterie le midi.<br>
+      Horaire<br>
+      Ouvert tous les jours sauf le jeudi.<br></h5></p>
+  </center>
 
-              La Journée 32e<br>
-              de 7h30 à 19h00</p><br></center>
-             
+
+  <table class="w3-table w3-border w3-centered ">
+    <tr>
+      <td>La demi-journée 18€ <br>
+        de 7h30 à 13h00<br>
+        OU <br>
+        de 13h00 à 18h30<br>
+      </td>
+      <td> <br>                    
+        La Journée 32€<br>
+        de 7h30 à 18h30</td>
+    </tr>
+  </table>
 
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
-    
-      <img src="Images/peche1.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+
+      <img src="Images/peche1.jpg?<?php echo filemtime('Images/peche1.jpg'); ?>" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
     </div>
     <div class="w3-col m6 w3-center w3-padding-large">
-    
-    <img src="Images/peche3.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
-  </div>
+
+      <img src="Images/peche2.jpg?<?php echo filemtime('Images/peche2.jpg'); ?>" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+    </div>
     <!-- Hide this text on small devices -->
     <div class="w3-col m6 w3-hide-small w3-padding-large">
       <p></p>
     </div>
-  </div>
   </div>
 </div>
 
@@ -135,27 +133,34 @@ body, html {
   </div>
 </div>
 
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">NOS PLAN D'EAU</span>
+  </div>
+</div>
+
 
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h3 class="w3-center">Les étangs</h3>
-  <p class="w3-center"><em>Voici les étangs en location!<br>Cliquez pour voir plus </em></p><br>
+  <p class="w3-center">Cliquez pour voir plus </em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center">
     <div class="w3-col m3">
-      <img src="Etangs/etangn2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Etangs n°1">
+      <img src="Images/etangn1.jpg?<?php echo filemtime('Images/etangn1.jpg'); ?>" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Etangs n°1">
     </div>
 
     <div class="w3-col m3">
-      <img src="Etangs/etangn3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Etangs n°2">
+      <img src="Images/etangn2.jpg?<?php echo filemtime('Images/etangn2.jpg'); ?>" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Etangs n°2">
     </div>
 
     <div class="w3-col m3">
-      <img src="Etangs/etangn6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Etangs n°3">
+      <img src="Images/etangn3.jpg?<?php echo filemtime('Images/etangn3.jpg'); ?>" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Etangs n°3">
     </div>
     <div class="w3-col m3">
-      <img src="Etangs/etangn4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Etangs n°4">
+      <img src="Images/etangn4.jpg?<?php echo filemtime('Images/etangn4.jpg'); ?>" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Etangs n°4">
     </div>
   </div>
   <br><br><br>
