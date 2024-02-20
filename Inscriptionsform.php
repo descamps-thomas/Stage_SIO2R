@@ -127,10 +127,10 @@ if (!isset($_POST['login']) && !isset($_POST['prenom']) && !isset($_POST['nom'])
     $MDP_CONFIRM = trim(str_replace([';','"', "'", '(', ')', '.'], '', $_POST['mdp_confirm']));
     $MAIL = strtolower(trim(str_replace([';','"', "'", '(', ')', '.'], '', $_POST['email'])));
     
-    $server = "localhost";
+    $user=ini_get("mysqli.default_user");
+    $passwd=ini_get("mysqli.default_pw");
+    $server=ini_get("mysqli.default_host");
     $dbname = "DomaineDPP";
-    $user = "eleve";
-    $passwd = "btsinfo";
     try {
         $bdd = new PDO('mysql:host=' . $server . ';dbname=' . $dbname . ';charset=utf8', $user, $passwd);
         $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

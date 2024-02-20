@@ -8,10 +8,10 @@ if (!isset($_SESSION['typeuser']) || !isset($_SESSION['login']) || ($_SESSION['t
     if (isset($_GET['id']) && isset($_GET['id_partie'])) {
         $id_partie = $_GET['id'];
         $id = $_GET['id_partie'];
-        $server = "localhost";
+        $user=ini_get("mysqli.default_user");
+        $passwd=ini_get("mysqli.default_pw");
+        $server=ini_get("mysqli.default_host");
         $dbname = "DomaineDPP";
-        $user = "eleve";
-        $passwd = "btsinfo";
 
         try {
             $bdd = new PDO('mysql:host=' . $server . ';dbname=' . $dbname . ';charset=utf8', $user, $passwd);

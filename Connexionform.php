@@ -83,10 +83,10 @@ body,html {
 
     <?php
 
-    $serveur = "localhost";
-    $utilisateur = "eleve";
-    $motDePasse = "btsinfo";
-    $baseDeDonnees = "DomaineDPP";
+$user=ini_get("mysqli.default_user");
+$passwd=ini_get("mysqli.default_pw");
+$server=ini_get("mysqli.default_host");
+$dbname = "DomaineDPP";
 
     try {
         $connexion = new PDO('mysql:host='.$serveur.';dbname='.$baseDeDonnees.';charset=utf8', $utilisateur, $motDePasse);
@@ -146,8 +146,8 @@ if (isset($_POST['submit'])) {
                 $_SESSION['typeuser'] = $ligne['typeuser'];
               
             
-                $fichier = fopen('Admin/DomaineDPPlog.txt', 'c+b');
-                fseek($fichier, filesize('Admin/DomaineDPPlog.txt'));
+                $fichier = fopen('Admin/DomaineDPPlog.log', 'c+b');
+                fseek($fichier, filesize('Admin/DomaineDPPlog.log'));
                 $texte = $date . " ; " . $nom_utilisateur . " ; Connection success from @ip: " . $_SERVER['REMOTE_ADDR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
               //  $texte = $date . " ; " . $loginStocke . " ; Connection success from @ip: " . $_SERVER['HTTP_X_FORWARDED_FOR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
                 fwrite($fichier, $texte);       
@@ -156,8 +156,8 @@ if (isset($_POST['submit'])) {
             } else {
                 
                 echo "<label class='w3-text-deep-orange'>Mot de passe incorect.</label>";
-                $fichier = fopen('Admin/DomaineDPPlog.txt', 'c+b');
-                fseek($fichier, filesize('Admin/DomaineDPPlog.txt'));
+                $fichier = fopen('Admin/DomaineDPPlog.log', 'c+b');
+                fseek($fichier, filesize('Admin/DomaineDPPlog.log'));
                 $texte = $date . " ; " . $nom_utilisateur . " ; Connection fail (password) from @ip: " . $_SERVER['REMOTE_ADDR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
                // $texte = $date . " ; " . $loginStocke . " ; Connection fail (password) from @ip: " . $_SERVER['HTTP_X_FORWARDED_FOR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
                 fwrite($fichier, $texte); 
@@ -166,8 +166,8 @@ if (isset($_POST['submit'])) {
     } else {
         echo "<label class='w3-text-deep-orange'>L'utilisateur n'existe pas.</label>";
     
-        $fichier = fopen('Admin/DomaineDPPlog.txt', 'c+b');
-        fseek($fichier, filesize('Admin/DomaineDPPlog.txt'));
+        $fichier = fopen('Admin/DomaineDPPlog.log', 'c+b');
+        fseek($fichier, filesize('Admin/DomaineDPPlog.log'));
         $texte = $date . " ; " . $nom_utilisateur . " ; Connection fail (login) from @ip: " . $_SERVER['REMOTE_ADDR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
         // $texte = $date . " ; " . $loginStocke . " ; Connection fail (login) from @ip: " . $_SERVER['HTTP_X_FORWARDED_FOR'] . " with " . $_SERVER['HTTP_USER_AGENT'] . "\n";
         fwrite($fichier, $texte); 

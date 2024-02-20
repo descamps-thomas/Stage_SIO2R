@@ -85,11 +85,11 @@ session_start();
         header('Location: ../index.php');
         exit();
     } else {
-    
-        $server = "localhost";
-        $dbname = "DomaineDPP";
-        $user = "eleve";
-        $passwd = "btsinfo";
+      $user=ini_get("mysqli.default_user");
+      $passwd=ini_get("mysqli.default_pw");
+      $server=ini_get("mysqli.default_host");
+      $dbname = "DomaineDPP";
+      
         
         try {
             $bdd = new PDO('mysql:host=' . $server . ';dbname=' . $dbname . ';charset=utf8', $user, $passwd);
