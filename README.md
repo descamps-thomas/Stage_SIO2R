@@ -299,6 +299,7 @@ Voici le script qui sauvegarde le répertoire html.
  
  
 Voici la configuration fail2ban qui permet d’analyser un fichier le log qui est remplit a chaque connexion est qui ban selon des paramètre spéciaux 
+
 ![fail2ban1](https://github.com/descamps-thomas/Stage_SIO2R/assets/130738201/30905608-a564-4a3d-a8d3-949f12a1f2d1)
 ![fail2ban2](https://github.com/descamps-thomas/Stage_SIO2R/assets/130738201/346fd4a3-960e-4a6b-9a75-4cb3190e25e9)
 ![fail2ban3](https://github.com/descamps-thomas/Stage_SIO2R/assets/130738201/291f8c8f-a77a-4937-affd-efff992ab298)
