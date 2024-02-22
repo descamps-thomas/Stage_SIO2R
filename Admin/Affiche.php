@@ -99,10 +99,10 @@ if (!isset($_SESSION['typeuser']) || !isset($_SESSION['login']) || ($_SESSION['t
     exit();
 }
 
-$server = "localhost";
+$user=ini_get("mysqli.default_user");
+$passwd=ini_get("mysqli.default_pw");
+$server=ini_get("mysqli.default_host");
 $dbname = "DomaineDPP";
-$user = "eleve";
-$passwd = "btsinfo";
 
 try {
     $bdd = new PDO('mysql:host='.$server.';dbname='.$dbname.';charset=utf8', $user, $passwd);
